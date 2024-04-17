@@ -16,15 +16,6 @@ const Rotas: React.FC = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/patient" element={<Home />} />
-                <Route path="/patient/home" element={<Home />} />
-                <Route path="/patient/signup" element={<Cadastro />} />
-                <Route path="/patient/vizualizar/documento" element={<ReceitaGuia />} />
-                <Route path="/patient/vizualizar/agenda" element={<Agenda />} />
-                <Route path="/patient/vizualizar/exame" element={<Exame />} />
-                <Route path="/patient/postar/exame" element={<PostarExames />} />
-                <Route path="/patient/vizualizar/medicos" element={<VisualizarMedico />} />
-                <Route path="/patient/fazer/consulta" element={<Consulta />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
