@@ -4,15 +4,15 @@ const Router = express.Router();
 
 
 Router.get(
-  "/user/all",
+  "/get/all",
   IngressoController.getAll
 );
 
 
 // main requests
 Router.post(
-  "/user/signup", 
-  IngressoController.signup
+  "/create", 
+  IngressoController.create
 );
 
 

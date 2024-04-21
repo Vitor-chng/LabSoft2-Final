@@ -13,7 +13,7 @@ import { UsuarioRepository } from './repository';
 export class UsuarioController {
 
 
-    static async signup(req: Request, res: Response) {
+    static async new(req: Request, res: Response) {
 
         const { email, password, name } = req.body;
 
@@ -27,6 +27,15 @@ export class UsuarioController {
         return res
             .status(200)
             .json({ message: "User created successfully", usuario });
+    }
+
+    static async getAll(req: Request, res: Response) {
+
+        const repository = new UsuarioRepository(getRepository(Usuario))
+
+        const entity = await repository.findAll()
+        res.set('Access-Control-Allow-Origin', '*');
+        return res.status(200).json(entity)
     }
 
 }

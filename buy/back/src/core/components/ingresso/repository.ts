@@ -12,6 +12,10 @@ export class IngressoRepository {
 		}) ?? undefined
 	}
 
+	async findAll(): Promise<Ingresso[] | undefined> {
+		return await this.db.find()
+	}
+
 
 	async create (ingresso: Ingresso): Promise<Ingresso> {
 		return await this.db.save(ingresso)

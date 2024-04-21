@@ -29,4 +29,14 @@ export class IngressoController {
             .json({ message: "User created successfully", ingresso });
     }
 
+
+    static async getAll(req: Request, res: Response) {
+
+        const repository = new IngressoRepository(getRepository(Ingresso))
+
+        const entity = await repository.findAll()
+        res.set('Access-Control-Allow-Origin', '*');
+        return res.status(200).json(entity)
+    }
+
 }
