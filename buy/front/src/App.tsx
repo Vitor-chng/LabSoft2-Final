@@ -5,7 +5,7 @@ import { URL_PATHS } from './services/apiPaths';
 
 function App() {
   const [email, setEmail] = useState('');
-  
+
 
   const [dados, setDados] = useState<any | null>(null);
   const [erroMessage, setErroMessage] = useState<string | null>(null);
@@ -47,7 +47,7 @@ function App() {
     try {
       const response = await Api.get(URL_PATHS.GET_USER, {
         params: {
-          email: emailPaciente,
+          email: email,
           assento: 2
         },
       });
@@ -74,20 +74,22 @@ function App() {
         </button>
       </form>
       <div>
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-            Email
-          </label>
-          <input
-            type="string"
-            id="email"
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Digite seu email"
-            value={email || ''}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+        <form>
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              Email
+            </label>
+            <input
+              type="string"
+              id="email"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Digite seu email"
+              value={email || ''}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+        </form>
       </div>
       <div>
         <table>
