@@ -20,7 +20,7 @@ export class UsuarioController {
         const repository = new UsuarioRepository(getRepository(Usuario))
 
         const usuario = new Usuario(email, password, name);
-        const oldUser = repository.findOneByEmail(email)
+        const oldUser = await repository.findOneByEmail(email)
         if (oldUser) {
             res.set('Access-Control-Allow-Origin', '*');
 
