@@ -20,13 +20,24 @@ export class UsuarioController {
         const repository = new UsuarioRepository(getRepository(Usuario))
 
         const usuario = new Usuario(email, password, name);
+        const oldUser = repository.findOneByEmail(email)
+        if (oldUser) {
+            res.set('Access-Control-Allow-Origin', '*');
 
-        repository.create(usuario)
-        res.set('Access-Control-Allow-Origin', '*');
+            return res
+                .status(200)
+                .json({ message: "Usuario ja existe: ", oldUser });
+        }
+        else {
+            
+            repository.create(usuario)
+            res.set('Access-Control-Allow-Origin', '*');
+            return res
+                .status(200)
+                .json({ message: "Usuario criado: ", usuario });
 
-        return res
-            .status(200)
-            .json({ message: "User created successfully", usuario });
+        }
+
     }
 
     static async getAll(req: Request, res: Response) {
