@@ -34,7 +34,8 @@ function App() {
     }
   };
 
-  const handleClick = (number: number) => {
+
+  const handleClick = async (number: number) => {
     console.log(`Botão ${number} clicado`);
     try {
       const response = await Api.get(URL_PATHS.GET_USER, {
