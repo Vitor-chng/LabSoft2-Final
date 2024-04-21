@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Api from './services/api';
-import TableComponent from './components/Table';
 import { URL_PATHS } from './services/apiPaths';
 
 
