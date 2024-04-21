@@ -106,7 +106,7 @@ function App() {
             {arrayCom25Elementos.map((item, index) => (
               <tr key={index}>
                 <td>{
-                  <form onSubmit={handlePost()}>
+                  <form onSubmit={handlePost}>
                     <button
                       type="submit"
                       className="py-2 px-4 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
