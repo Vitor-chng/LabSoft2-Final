@@ -1,5 +1,5 @@
 import 'dotenv/config'
 export const env = {
 	appName: 'buy-service',
-	serverPort: 3000
+	serverPort: 3001
 }
