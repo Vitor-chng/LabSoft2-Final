@@ -11,18 +11,10 @@ function App() {
   const [dados, setDados] = useState<any | null>(null);
   const [erroMessage, setErroMessage] = useState<string | null>(null);
 
-  // console.log(user, process.env.NODE_ENV)
-
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const customToken = urlParams.get('token') ?? ''
 
   useEffect(() => {
 
   }, []);
-
-  //  if (!user && process.env.NODE_ENV === 'production') {
-  //    return <div>Carregando...</div>;
-  //  }
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,14 +34,13 @@ function App() {
     }
   };
 
-  const handlePost = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(e)
+  const handleClick = (number: number) => {
+    console.log(`Botão ${number} clicado`);
     try {
       const response = await Api.get(URL_PATHS.GET_USER, {
         params: {
           email: email,
-          assento: 2
+          assento: number
         },
       });
 
@@ -61,7 +52,7 @@ function App() {
     }
   };
 
-  const arrayCom25Elementos: number[] = Array.from({ length: 25 }, (_, index) => index + 1);
+  const numeros: number[] = Array.from({ length: 25 }, (_, index) => index + 1);
 
   return (
     <>
@@ -93,7 +84,22 @@ function App() {
         </form>
       </div>
       <div>
-        <TableComponent />
+      <table>
+      <tbody>
+        {Array.from({ length: 5 }, (_, rowIndex) => (
+          <tr key={rowIndex}>
+            {Array.from({ length: 5 }, (_, colIndex) => {
+              const numero = rowIndex * 5 + colIndex + 1;
+              return (
+                <td key={colIndex}>
+                  <button onClick={() => handleClick(numero)}>{numero}</button>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
       </div>
     </>
   );
