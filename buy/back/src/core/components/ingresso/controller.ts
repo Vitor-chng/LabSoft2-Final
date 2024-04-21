@@ -20,7 +20,9 @@ export class IngressoController {
         const repository = new IngressoRepository(getRepository(Ingresso))
 
         const ingresso = new Ingresso(email, assento);
-
+        console.log(ingresso)
+        console.log(email)
+        console.log(assento)
         repository.create(ingresso)
         res.set('Access-Control-Allow-Origin', '*');
 

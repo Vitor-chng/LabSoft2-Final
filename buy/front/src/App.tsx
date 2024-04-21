@@ -35,13 +35,10 @@ function App() {
 
 
   const handleClick = async (number: number) => {
-    console.log(`Botão ${number} clicado`);
     try {
       const response = await Api.post(URL_PATHS.POST_INGRESSO, {
-        params: {
-          email: email,
-          assento: number
-        },
+        email: email,
+        assento: number
       });
 
       setDados(response.data);
@@ -72,36 +69,36 @@ function App() {
               Email:
             </label>
             <div>
-            <input
-              type="string"
-              id="email"
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Digite seu email"
-              value={email || ''}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+              <input
+                type="string"
+                id="email"
+                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Digite seu email"
+                value={email || ''}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
           </div>
         </form>
       </div>
       <div>
-      <table>
-      <tbody>
-        {Array.from({ length: 5 }, (_, rowIndex) => (
-          <tr key={rowIndex}>
-            {Array.from({ length: 5 }, (_, colIndex) => {
-              const numero = rowIndex * 5 + colIndex + 1;
-              return (
-                <td key={colIndex}>
-                  <button onClick={() => handleClick(numero)}>{numero}</button>
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+        <table>
+          <tbody>
+            {Array.from({ length: 5 }, (_, rowIndex) => (
+              <tr key={rowIndex}>
+                {Array.from({ length: 5 }, (_, colIndex) => {
+                  const numero = rowIndex * 5 + colIndex + 1;
+                  return (
+                    <td key={colIndex}>
+                      <button onClick={() => handleClick(numero)}>{numero}</button>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
