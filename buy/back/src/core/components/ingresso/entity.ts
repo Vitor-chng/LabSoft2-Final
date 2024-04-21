@@ -20,7 +20,7 @@ export class Ingresso {
     @UpdateDateColumn()
     	updated_at?: Date
 
-	@Column('int')
+	@Column({ type: 'int', nullable: true })
 		assento: number;
     
     constructor(usuario: string, assento: number) {
