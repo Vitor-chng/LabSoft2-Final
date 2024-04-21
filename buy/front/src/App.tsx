@@ -17,28 +17,28 @@ function App() {
   }, []);
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await Api.get(URL_PATHS.GET_USER, {
-        // params: {
-        //   email: emailPaciente,
-        // },
-      });
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await Api.get(URL_PATHS.GET_USER, {
+  //       // params: {
+  //       //   email: emailPaciente,
+  //       // },
+  //     });
 
-      setDados(response.data);
-      setErroMessage(null);
-    } catch (error) {
-      setErroMessage('Erro de usuario');
-      setDados(null);
-    }
-  };
+  //     setDados(response.data);
+  //     setErroMessage(null);
+  //   } catch (error) {
+  //     setErroMessage('Erro de usuario');
+  //     setDados(null);
+  //   }
+  // };
 
 
   const handleClick = async (number: number) => {
     console.log(`Botão ${number} clicado`);
     try {
-      const response = await Api.get(URL_PATHS.GET_USER, {
+      const response = await Api.post(URL_PATHS.POST_INGRESSO, {
         params: {
           email: email,
           assento: number
@@ -57,7 +57,7 @@ function App() {
 
   return (
     <>
-      test api call
+      {/* test api call
       <form onSubmit={handleSubmit}>
         <button
           type="submit"
@@ -65,13 +65,14 @@ function App() {
         >
           Get simples
         </button>
-      </form>
+      </form> */}
       <div>
         <form>
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-              Email
+              Email:
             </label>
+            <div>
             <input
               type="string"
               id="email"
@@ -81,6 +82,7 @@ function App() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            </div>
           </div>
         </form>
       </div>
