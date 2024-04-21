@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Api from './services/api';
-import { URL_PATHS } from './services/pathUrl';
+import { URL_PATHS } from './services/apiPaths';
 
 
 function App() {
