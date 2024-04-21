@@ -1,0 +1,31 @@
+Buy - possibilita que uma pessoa compre um ingresso
+
+Entities:
+
+    Usuario
+        'email' (id)
+        ingressos array com todos os ingressos
+
+
+
+
+
+    Ingresso
+        id
+        usuario
+        assento(posicao)
+
+
+
+
+
+
+
+Map - Guarda e mostra a disponibilidade de assentos 
+
+
+Entities:
+
+    Mapa
+        matriz com a disponibilidade
+
