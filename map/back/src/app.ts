@@ -25,6 +25,11 @@ async function main() {
 		return res.status(200).send()
 	})
 
+	app.get(`get/other/back`, (req, res) => {
+		console.log('foi')
+		return res.status(200).send()
+	})
+
 	app.use(cors())
 
 	app.use(errorHandler);
