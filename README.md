@@ -9,6 +9,9 @@ npm i nas pastas front e back
 comando para criar o postgress:
 docker run --name labsoft_db -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 postgres
 
+apos criado, para iniciar posteriormente:
+docker start patient_db
+
 dentro do docker postgress:
 psql -h localhost -U postgres
 
