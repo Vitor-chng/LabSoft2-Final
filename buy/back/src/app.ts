@@ -53,7 +53,7 @@ async function main() {
 				hostname:'localhost',
 				// 3001 é para testes locais
 				port: 3002,
-				path: 'get/other/back',
+				path: '/get/other/back',
 
 			}, (resp) => {
 				let data = '';
