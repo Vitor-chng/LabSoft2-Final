@@ -63,11 +63,11 @@ async function main() {
 				});
 
 				// Toda a resposta foi recebida. Exibir o resultado.
-				resp.on('end', () => {
-					res.set('Access-Control-Allow-Origin', '*');
-					return res
-						.status(200).json(JSON.parse(data))
-				});
+				// resp.on('end', () => {
+				// 	res.set('Access-Control-Allow-Origin', '*');
+				// 	return res
+				// 		.status(200).json(JSON.parse(data))
+				// });
 
 			}).on("error", (err) => {
 				console.log("Error: " + err.message);
